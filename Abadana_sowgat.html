@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="tk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abadan üçin sowgat 🌷</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  display: grid; place-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#ffe1ec,#fff5f8);
+  color: #60394d;
+  text-align: center;
+}
+.card {
+  width: 100%; max-width: 420px;
+  padding: 35px 22px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 10px 35px #d99bb555;
+}
+.flower { font-size: 50px; }
+h1,h2 { color: #d34f89; }
+p { line-height: 1.7; }
+button {
+  border: none; border-radius: 30px;
+  padding: 14px 25px; margin: 8px;
+  font-size: 17px; cursor: pointer;
+}
+#yes { background: #e66b9e; color: white; }
+#no { background: #eee; color: #555; }
+#result { display: none; }
+.heart {
+  position: fixed; bottom: -30px;
+  animation: fly 4s linear forwards;
+  pointer-events: none;
+}
+@keyframes fly {
+  to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <section id="question">
+    <div class="flower">🌷</div>
+    <h1>Salam, Abadan! 😊</h1>
+    <p>Saňa kiçijik bir sowgadym bar. Taýynmy?</p>
+    <button id="yes">Hawa! 💗</button>
+    <button id="no">Ýok 🙈</button>
+  </section>
+
+  <section id="result">
+    <div class="flower">🎉🌸</div>
+    <h2>Kiçijik ýatlatma!</h2>
+    <p>Käbir adamlaryň durmuşymyzda bolmagy ýönekeýje bir bagt. Senem şol adamlaryň biri! 😊</p>
+    <p>Hemişe şadyýan bol, Abadan! Ýüzüňden ýylgyryş aýrylmasyn. 💐</p>
+    <p>Saňa dostluk bilen taýýarlanan kiçijik sowgat ❤️</p>
+  </section>
+</div>
+
+<script>
+const yes = document.getElementById("yes");
+const no = document.getElementById("no");
+
+no.onclick = () => {
+  no.style.position = "fixed";
+  no.style.left = Math.random() * 75 + "vw";
+  no.style.top = Math.random() * 75 + "vh";
+};
+
+yes.onclick = () => {
+  document.getElementById("question").style.display = "none";
+  document.getElementById("result").style.display = "block";
+
+  for(let i=0; i<30; i++) {
+    setTimeout(() => {
+      const h = document.createElement("span");
+      h.className = "heart";
+      h.textContent = "💗";
+      h.style.left = Math.random()*100+"vw";
+      h.style.fontSize = "25px";
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),4000);
+    },i*100);
+  }
+};
+</script>
+</body>
+</html>
